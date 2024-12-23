@@ -1,12 +1,10 @@
-import logo from "../../images/logo.jpg"
+import logo from "../../images/logo.jpg";
 import cart2 from "../../images/cart2.jpg";
-;
-
 import Link from "next/link";
 import { useContext } from "react";
 import cartContext from "@/pages/Context/CartContext";
-export default function Header(props:any) {
-    const{cartItem}=useContext(cartContext)
+export default function Header(props: any) {
+  const { cartItem } = useContext(cartContext);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -46,18 +44,15 @@ export default function Header(props:any) {
               <Link className="nav-link" href="/ContactUs">
                 Contact Us
               </Link>
-            
             </li>
             <li className="nav-item">
               <Link className="nav-link" href="/Cart">
-              <div className="d-flex"><img src={cart2.src} height={'50px'}></img><h6 className="text-danger">{cartItem.length}</h6></div>
-
+                <div className="d-flex">
+                  <img src={cart2.src} height={"50px"}></img>
+                  <h6 className="text-danger">{cartItem.length}</h6>
+                </div>
               </Link>
-            
             </li>
-            
-          
-
           </ul>
         </div>
       </div>

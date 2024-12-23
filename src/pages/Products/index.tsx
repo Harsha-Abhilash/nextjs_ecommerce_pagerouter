@@ -6,7 +6,6 @@
 // // import { Product_services } from "../Services/ProductServices";
 
 // // export default async function Products(props: any) {
-  
 
 // //   const { category } = await props.searchParams||{};
 // //   if(category!==undefined){
@@ -23,7 +22,7 @@
 // //     var product = await Product_services.Get_productByCategory(
 // //       "women's clothing"
 // //     );
-// //   } 
+// //   }
 // // }
 // //   else {
 // //     var product = await Product_services.Get_product();
@@ -151,7 +150,9 @@ export async function getServerSideProps(context: any) {
     } else if (category === "men") {
       product = await Product_services.Get_productByCategory("men's clothing");
     } else if (category === "women") {
-      product = await Product_services.Get_productByCategory("women's clothing");
+      product = await Product_services.Get_productByCategory(
+        "women's clothing"
+      );
     }
   } else {
     product = await Product_services.Get_product(); // Fetch all products if no category is provided
@@ -173,7 +174,6 @@ export default function Products({ product }: any) {
             <Electronic />
             <Jewellery />
             <Mens_clothing />
-            
           </div>
         </div>
         <div className="col">
@@ -191,4 +191,3 @@ export default function Products({ product }: any) {
     </>
   );
 }
-

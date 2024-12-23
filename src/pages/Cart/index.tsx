@@ -17,7 +17,6 @@
 
 //   const { cartItem, removeFromCart, increaseQuantity, decreaseQuantity } =
 //     useContext(cartContext);
-  
 
 //   let subtotal = 0;
 //   cartItem.forEach((item:cart) => {
@@ -27,19 +26,19 @@
 //   return (
 //     <>
 //       <div  className="row p-5">
-       
+
 //           <h1 className="p-2 text-center">Shopping Cart</h1>
-        
+
 //         {cartItem.length === 0 ? (
 //           <span className="text-center">Your Cart is Empty</span>
 //         ) : (
 //           cartItem.map((item: cart) => {
 //             return (
-              
+
 //                 <div key={item.id} className="row" >
-                 
+
 //                    <div> <img src={item.image} height={"200px"}></img></div>
-                  
+
 //                   <div className="col">
 //                     <div className="row ">
 //                       <h3>{item.title}</h3>
@@ -86,8 +85,7 @@
 //                     ${item.price * item.quantity}
 //                   </div>
 //                 </div>
-               
-              
+
 //             );
 //           })
 //         )}
@@ -98,7 +96,7 @@
 //         </h3>
 //       </div>
 //       <div className="text-center">
-       
+
 //         <Link href="/Products" className="btn btn-secondary m-3">
 //           Back to Products
 //         </Link>
@@ -108,13 +106,6 @@
 // }
 
 // export default Cart;
-
-
-
-
-
-
-
 
 "use client";
 import { useMemo } from "react";
@@ -132,7 +123,8 @@ function Cart() {
     title: string;
   }
 
-  const { cartItem, removeFromCart, increaseQuantity, decreaseQuantity } = useContext(cartContext);
+  const { cartItem, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useContext(cartContext);
   console.log(cartItem);
 
   // Memoizing the subtotal calculation to avoid unnecessary recalculations
@@ -195,7 +187,9 @@ function Cart() {
                   </div>
                 </div>
               </div>
-              <div className="col fw-bold">${(item.price * item.quantity).toFixed(2)}</div>
+              <div className="col fw-bold">
+                ${(item.price * item.quantity).toFixed(2)}
+              </div>
             </div>
           ))
         )}
@@ -220,4 +214,3 @@ function Cart() {
 }
 
 export default Cart;
-

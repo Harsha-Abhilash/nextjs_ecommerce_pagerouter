@@ -16,10 +16,7 @@ export default function CartContextProvider({
     image: string;
   }
 
-
   const [cartItem, setcartitems] = useState<Cart[]>([]);
-
-  
 
   const addToCart = useCallback((item: Cart) => {
     console.log("adding");
