@@ -8,7 +8,7 @@ function Order() {
   // Memoize subtotal calculation
   const subtotal = useMemo(() => {
     return cartItem.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total:any, item:any) => total + item.price * item.quantity,
       0
     );
   }, [cartItem]);

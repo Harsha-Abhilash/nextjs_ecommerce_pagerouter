@@ -1,111 +1,4 @@
-// "use client";
-// import { useState, useEffect } from "react";
-// import cartContext from "../contexts/Context";
-// import { useContext } from "react";
-// import Link from "next/link";
 
-// import CartContextProvider from "../contexts/CartContextProvider";
-// function Cart() {
-//   interface cart {
-//     id: number;
-//     name: string;
-//     price: number;
-//     quantity: number;
-//     image: string;
-//     title: string;
-//   }
-
-//   const { cartItem, removeFromCart, increaseQuantity, decreaseQuantity } =
-//     useContext(cartContext);
-
-//   let subtotal = 0;
-//   cartItem.forEach((item:cart) => {
-//     subtotal += item.price * item.quantity;
-//   });
-
-//   return (
-//     <>
-//       <div  className="row p-5">
-
-//           <h1 className="p-2 text-center">Shopping Cart</h1>
-
-//         {cartItem.length === 0 ? (
-//           <span className="text-center">Your Cart is Empty</span>
-//         ) : (
-//           cartItem.map((item: cart) => {
-//             return (
-
-//                 <div key={item.id} className="row" >
-
-//                    <div> <img src={item.image} height={"200px"}></img></div>
-
-//                   <div className="col">
-//                     <div className="row ">
-//                       <h3>{item.title}</h3>
-//                     </div>
-//                     <div className="row ">
-//                       <div className="input-group d-flex justify-content-center m-2 p-2">
-//                         <button
-//                           className="btn btn-outline-secondary"
-//                           type="button"
-//                           onClick={() => increaseQuantity(item.id)}
-//                         >
-//                           +
-//                         </button>
-
-//                         <div>
-//                           <input
-//                             type="text"
-//                             className="form-control "
-//                             aria-label="Example text with two button addons"
-//                           />
-//                         </div>
-//                         <button
-//                           className="btn btn-outline-secondary"
-//                           type="button"
-//                           onClick={() => decreaseQuantity(item.id)}
-//                         >
-//                           -
-//                         </button>
-//                       </div>
-//                     </div>
-
-//                     <div className="row">
-//                       <div className=" text-center">
-//                         <button
-//                           className="btn btn-secondary"
-//                           onClick={() => removeFromCart(item.id)}
-//                         >
-//                           Remove
-//                         </button>
-//                       </div>
-//                     </div>
-//                   </div>
-//                   <div className="col fw-bold ">
-//                     ${item.price * item.quantity}
-//                   </div>
-//                 </div>
-
-//             );
-//           })
-//         )}
-//       </div>
-//       <div>
-//         <h3 className="text-danger fw-bold text-center">
-//           SubTotal : {subtotal.toFixed(2)}
-//         </h3>
-//       </div>
-//       <div className="text-center">
-
-//         <Link href="/Products" className="btn btn-secondary m-3">
-//           Back to Products
-//         </Link>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Cart;
 
 "use client";
 import { useMemo } from "react";
@@ -119,7 +12,7 @@ function Cart() {
     name: string;
     price: number;
     quantity: number;
-    image: string;
+    image: any
     title: string;
   }
 
@@ -129,7 +22,7 @@ function Cart() {
 
   // Memoizing the subtotal calculation to avoid unnecessary recalculations
   const subtotal = useMemo(() => {
-    return cartItem.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return cartItem.reduce((acc:any, item:any) => acc + item.price * item.quantity, 0);
   }, [cartItem]);
 
   return (

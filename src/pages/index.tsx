@@ -78,9 +78,16 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
+interface Product {
+  documentId: string;
+  title: string;
+  price: number;
+  image: any;
+}
 // Fetch product data from the server side using getServerSideProps
 export async function getServerSideProps() {
+  
+
   const product = await Product_services.Get_product();
   const sliced = product.slice(2, 7);
   return {
@@ -88,7 +95,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ products }) {
+export default function Home({ products }: { products: Product[] }) {
   return (
     <>
       <Head>
@@ -99,20 +106,24 @@ export default function Home({ products }) {
       </Head>
 
       <div className="row">
-        <img src={banner.src} height={'300px'} style={{ objectFit: 'cover' }} alt="Home Banner" />
+        <img
+          src={banner.src}
+          height={'300px'}
+          style={{ objectFit: 'cover' }}
+          alt="Home Banner"
+        />
       </div>
 
-      <div className='p-2'>
+      <div className="p-2">
         <h3>Recommended Products</h3>
       </div>
 
       {/* Render products using the ProductCard component */}
       <div className="row">
-        {products.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
-        })}
+        {products.map((p) => (
+          <ProductCard key={p.documentId} product={p} />
+        ))}
       </div>
     </>
   );
 }
-
