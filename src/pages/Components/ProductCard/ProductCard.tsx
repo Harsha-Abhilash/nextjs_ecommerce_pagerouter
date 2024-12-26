@@ -3,13 +3,16 @@ import Link from "next/link";
 import { useContext } from "react";
 import cartContext from "../../Context/CartContext";
 export default function ProductCard(props: any) {
-  const product = props.product;
-  console.log(product);
+  const product = props.product || {};
+  console.log("documentid is",product.documentId);
   const { addToCart, cartItem } = useContext(cartContext);
-  console.log("cartitem", cartItem);
+  
   const handleAddToCart = () => {
     addToCart(product);
   };
+  if(!product.documentId){
+  
+  return;}
   return (
     <>
       <div className="col-md-4 col-sm-6 mb-4">

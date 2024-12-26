@@ -1,6 +1,5 @@
-import { service_base } from "./baseservice";
-
-export class Product_services extends service_base {
+import { service_base } from '../../public/Services/baseservices'
+export  class Product_services extends service_base {
   static async Get_product() {
     var Product_response = await fetch(
       service_base.get_URL("products?populate=image")

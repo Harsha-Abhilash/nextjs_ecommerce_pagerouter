@@ -13,7 +13,7 @@ export default function CartContextProvider({
     name: string;
     price: number;
     quantity: number;
-    image: string;
+    image: any;
   }
 
   const [cartItem, setcartitems] = useState<Cart[]>([]);

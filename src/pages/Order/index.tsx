@@ -14,7 +14,7 @@ function Order() {
   }, [cartItem]);
 
   const handleBuy = () => {
-    const cartdata = cartItem.map((c) => ({
+    const cartdata = cartItem.map((c:any) => ({
       data: {
         title: c.title,
 
@@ -43,7 +43,7 @@ function Order() {
         });
     }
   };
-  console.log("orederpage");
+  
   return (
     <div className="container">
       <h1 className="p-2">Order Details</h1>
@@ -51,7 +51,7 @@ function Order() {
       {cartItem.length === 0 ? (
         <span>Your Cart is Empty</span>
       ) : (
-        cartItem.map((item) => (
+        cartItem.map((item:any) => (
           <div className="row" key={item.id}>
             <div className="col">
               <img src={item.image.url} height={"200px"} alt={item.title} />
